@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "alarm_table")
 data class Alarm(
-    val day: DaysOfWeek,
+    val day: Int,
     val fromAddress: String,
     val toAddress: String,
     val departTime: Long,

@@ -43,13 +43,13 @@ abstract class AlarmDatabase : RoomDatabase() {
         suspend fun populateDb(db: AlarmDatabase?) {
             val alarmDao = db?.alarmDao()
             withContext(Dispatchers.IO) {
-                alarmDao?.insert(Alarm(DaysOfWeek.MONDAY, "800-летия Москвы, 28к1",
+                alarmDao?.insert(Alarm(DaysOfWeek.MONDAY.ordinal, "800-летия Москвы, 28к1",
                     "Прянишникова, 2а", 1555056000000,
                     1555052400000, true))
-                alarmDao?.insert(Alarm(DaysOfWeek.WEDNESDAY, "800-летия Москвы, 28к1",
+                alarmDao?.insert(Alarm(DaysOfWeek.WEDNESDAY.ordinal, "800-летия Москвы, 28к1",
                     "Прянишникова, 2а", 1555056000000,
                     1555052400000, true))
-                alarmDao?.insert(Alarm(DaysOfWeek.FRIDAY, "800-летия Москвы, 28к1",
+                alarmDao?.insert(Alarm(DaysOfWeek.FRIDAY.ordinal, "800-летия Москвы, 28к1",
                     "Прянишникова, 2а", 1555056000000,
                     1555052400000, true))
             }
