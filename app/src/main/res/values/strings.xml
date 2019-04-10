@@ -1,3 +1,18 @@
 <resources>
+
     <string name="app_name">Smart Alarm</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="label">Label</string>
+    <string name="departure_time">Departure time:</string>
+
+    <string-array name="days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
 </resources>

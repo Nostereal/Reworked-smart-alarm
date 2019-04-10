@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="normal_time_text_size">44sp</dimen>
+    <dimen name="small_time_text_size">24sp</dimen>
+    <dimen name="normal_text_size">14sp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="tiny_margin">4dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="medium_margin">12dp</dimen>
+
+</resources>
