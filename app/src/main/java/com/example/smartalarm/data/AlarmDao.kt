@@ -18,6 +18,9 @@ interface AlarmDao {
     @Query("DELETE FROM alarm_table")
     fun deleteAllAlarms()
 
-    @Query("SELECT * FROM alarm_table ORDER BY day ASC")
+    @Query("SELECT * FROM alarm_table ORDER BY days ASC")
     fun getAllAlarms() : LiveData<List<Alarm>>
+
+    @Query("SELECT * FROM alarm_table WHERE id IN (:id)")
+    fun getAlarmById(id: Int) : Alarm
 }

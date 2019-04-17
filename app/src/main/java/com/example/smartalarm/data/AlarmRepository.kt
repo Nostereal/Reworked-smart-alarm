@@ -2,9 +2,7 @@ package com.example.smartalarm.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class AlarmRepository(application: Application) {
     private var alarmDao: AlarmDao
@@ -34,5 +32,10 @@ class AlarmRepository(application: Application) {
 
     fun update(alarm: Alarm) {
         uiScope.launch { alarmDao.update(alarm) }
+    }
+
+    fun getAlarmById(id: Int) : Alarm {
+        val alarm: Alarm = alarmDao.getAlarmById(id)
+        return alarm
     }
 }

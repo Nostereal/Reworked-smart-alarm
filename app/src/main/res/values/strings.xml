@@ -4,6 +4,11 @@
     <string name="vibrate">Vibrate</string>
     <string name="label">Label</string>
     <string name="departure_time">Departure time:</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="alarm_time">Alarm time:</string>
 
     <string-array name="days">
         <item>Monday</item>
@@ -13,6 +18,16 @@
         <item>Friday</item>
         <item>Saturday</item>
         <item>Sunday</item>
+    </string-array>
+
+    <string-array name="days_letters">
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+        <item>S</item>
     </string-array>
 
 </resources>

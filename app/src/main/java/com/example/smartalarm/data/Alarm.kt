@@ -5,16 +5,16 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "alarm_table")
 data class Alarm(
-    val day: String,
-    val fromAddress: String,
-    val toAddress: String,
-    val departTimeInMinutes: Int,
-    val timeInMinutes: Int,
-    val isEnabled: Boolean,
-    val label: String,
-    val isVibrateEnabled: Boolean,
-    val soundTitle: String,
-    val soundUri: String
+    var days: Int,
+    var fromAddress: String,
+    var toAddress: String,
+    var departTimeInMinutes: Int,
+    var timeInMinutes: Int,
+    var isEnabled: Boolean,
+    var label: String,
+    var isVibrateEnabled: Boolean,
+    var soundTitle: String,
+    var soundUri: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

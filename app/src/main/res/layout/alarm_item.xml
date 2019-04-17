@@ -1,57 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:focusable="true"
+        android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
     <RelativeLayout
+            android:id="@+id/alarm_item_holder"
+            android:padding="8dp"
             android:layout_width="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-        <TextView
-                android:id="@+id/fromAddressTextView"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="From:"
+        <RelativeLayout
+                android:id="@+id/alarm_item_from_holder"
                 android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/alarm_item_switch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
 
-        <TextView
-                android:id="@+id/toAddressTextView"
-                android:maxLines="1"
-                android:text="To:"
-                android:layout_below="@id/fromAddressTextView"
+            <TextView
+                    android:id="@+id/alarm_item_from_text"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/from"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/alarm_item_from_address"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_toEndOf="@id/alarm_item_from_text"
+                    android:paddingStart="@dimen/small_margin"
+                    tools:text="800-летия Москвы, 28к1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/alarm_item_to_holder"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/alarm_item_from_holder"
+                android:layout_toStartOf="@id/alarm_item_switch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
 
-        <TextView
-                android:id="@+id/departTimeTextView"
-                android:text="Departure time:"
-                android:layout_below="@id/toAddressTextView"
+            <TextView
+                    android:id="@+id/alarm_item_to_text"
+                    android:maxLines="1"
+                    android:text="@string/to"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/alarm_item_to_address"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/small_margin"
+                    android:layout_toEndOf="@id/alarm_item_to_text"
+                    tools:text="Прянишникова, 2а"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+                android:id="@+id/alarm_item_depart_holder"
+                android:layout_below="@id/alarm_item_to_holder"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/alarm_item_switch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
 
-        <TextView
-                android:id="@+id/alarmTimeTextView"
-                android:text="Alarm time:"
-                android:layout_below="@id/departTimeTextView"
+            <TextView
+                    android:id="@+id/alarm_item_depart_text"
+                    android:maxLines="1"
+                    android:text="@string/departure_time"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/alarm_item_time_text_width"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/alarm_item_depart_time"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/small_margin"
+                    android:textSize="@dimen/small_time_size"
+                    android:layout_toEndOf="@id/alarm_item_depart_text"
+                    tools:text="8:10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/alarm_item_alarm_holder"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/alarm_item_switch"
+                android:layout_below="@id/alarm_item_depart_holder"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
 
-        <TextView
-                android:id="@+id/dayTextView"
+            <TextView
+                    android:id="@+id/alarm_item_alarm_text"
+                    android:maxLines="1"
+                    android:text="@string/alarm_time"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="@dimen/alarm_item_time_text_width"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/alarm_item_alarm_time"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/small_margin"
+                    android:textSize="@dimen/small_time_size"
+                    android:layout_toEndOf="@id/alarm_item_alarm_text"
+                    tools:text="7:00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <Switch
+                android:id="@+id/alarm_item_switch"
                 android:layout_alignParentEnd="true"
-                android:text="MON"
                 android:layout_centerVertical="true"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_alignTop="@id/alarm_item_from_holder"
+                android:layout_alignBottom="@id/alarm_item_alarm_holder"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingEnd="@dimen/small_margin"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
 
     </RelativeLayout>
 

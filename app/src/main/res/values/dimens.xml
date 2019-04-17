@@ -8,5 +8,8 @@
     <dimen name="tiny_margin">4dp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="medium_margin">12dp</dimen>
+    <dimen name="alarm_day_size">38dp</dimen>
+    <dimen name="alarm_item_time_text_width">98dp</dimen>
+    <dimen name="small_time_size">18sp</dimen>
 
 </resources>

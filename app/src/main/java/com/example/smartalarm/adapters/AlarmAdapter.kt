@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartalarm.R
 import com.example.smartalarm.data.Alarm
-import kotlinx.android.synthetic.main.alarm_item.view.*
 
 class AlarmAdapter : ListAdapter<Alarm, AlarmAdapter.AlarmHolder>(DIFF_CALLBACK) {
     private var listener: OnItemClickListener? = null
@@ -22,9 +21,9 @@ class AlarmAdapter : ListAdapter<Alarm, AlarmAdapter.AlarmHolder>(DIFF_CALLBACK)
             }
 
             override fun areContentsTheSame(oldItem: Alarm, newItem: Alarm): Boolean {
-                return oldItem.day == newItem.day && oldItem.alarmTime == newItem.alarmTime
-                        && oldItem.departTime == newItem.departTime && oldItem.fromAddress == newItem.fromAddress
-                        && oldItem.toAddress == newItem.toAddress && oldItem.isActive == newItem.isActive
+                return oldItem.days == newItem.days && oldItem.timeInMinutes == newItem.timeInMinutes
+                        && oldItem.departTimeInMinutes == newItem.departTimeInMinutes && oldItem.fromAddress == newItem.fromAddress
+                        && oldItem.toAddress == newItem.toAddress && oldItem.isEnabled == newItem.isEnabled
             }
         }
     }
@@ -38,17 +37,15 @@ class AlarmAdapter : ListAdapter<Alarm, AlarmAdapter.AlarmHolder>(DIFF_CALLBACK)
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: AlarmHolder, position: Int) {
         val currentAlarm = getItem(position)
-        holder.day.text = currentAlarm.day
         holder.fromAddress.text = "From: ${currentAlarm.fromAddress}"
         holder.toAddress.text = "To: ${currentAlarm.toAddress}"
-        holder.departTime.text = "Departure time: ${currentAlarm.departTime}"
-        holder.alarmTime.text = "Alarm time: ${currentAlarm.alarmTime}"
+        holder.departTime.text = "Departure time: ${currentAlarm.departTimeInMinutes}"
+        holder.alarmTime.text = "Alarm time: ${currentAlarm.timeInMinutes}"
     }
 
     inner class AlarmHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        internal var day = itemView.findViewById<TextView>(R.id.dayTextView)
-        internal var fromAddress = itemView.findViewById<TextView>(R.id.fromAddressTextView)
-        internal var toAddress = itemView.findViewById<TextView>(R.id.toAddressTextView)
+        internal var fromAddress = itemView.findViewById<TextView>(R.id.fromAddressEditText)
+        internal var toAddress = itemView.findViewById<TextView>(R.id.toAddressEditText)
         internal var departTime = itemView.findViewById<TextView>(R.id.departTimeTextView)
         internal var alarmTime = itemView.findViewById<TextView>(R.id.alarmTimeTextView)
 

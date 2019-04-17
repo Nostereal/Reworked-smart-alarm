@@ -26,4 +26,6 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getAllAlarms() = allAlarms
+
+    fun getAlarmById(id: Int) = repository.getAlarmById(id)
 }
