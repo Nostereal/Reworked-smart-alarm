@@ -7,4 +7,14 @@
     <color name="textColor">#F0F0F0</color>
     <color name="textColorHint">#C0C0C0</color>
     <color name="backgroundColor">#1F2F3F</color>
+
+    <!-- AMBER Theme -->
+    <color name="primaryColorAmber">#FFC107</color>
+    <color name="primaryLightColorAmber">#FFECB3</color>
+    <color name="primaryDarkColorAmber">#FFA000</color>
+    <color name="secondaryColorAmber">#03A9F4</color>
+    <color name="secondaryLightColorAmber">#65c4ef</color>
+    <color name="secondaryDarkColorAmber">#1e87b6</color>
+    <color name="primaryTextColorAmber">#ffffff</color>
+    <color name="secondaryTextColorAmber">#000000</color>
 </resources>

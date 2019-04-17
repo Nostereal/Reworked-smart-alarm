@@ -9,6 +9,8 @@
     <string name="from">From:</string>
     <string name="to">To:</string>
     <string name="alarm_time">Alarm time:</string>
+    <string name="from_hint">From...</string>
+    <string name="to_hint">To...</string>
 
     <string-array name="days">
         <item>Monday</item>

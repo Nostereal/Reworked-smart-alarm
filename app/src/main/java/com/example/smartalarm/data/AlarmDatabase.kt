@@ -1,6 +1,7 @@
 package com.example.smartalarm.data
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,16 +16,18 @@ import java.util.*
 @Database(entities = [Alarm::class], version = 2)
 abstract class AlarmDatabase : RoomDatabase() {
 
-    abstract fun alarmDao() : AlarmDao
+    abstract fun alarmDao(): AlarmDao
 
     companion object {
         private var instance: AlarmDatabase? = null
 
-        fun getInstance(context: Context) : AlarmDatabase? {
+        fun getInstance(context: Context): AlarmDatabase? {
             if (instance == null) {
                 synchronized(AlarmDatabase::class) {
-                    instance = Room.databaseBuilder(context.applicationContext,
-                        AlarmDatabase::class.java, "alarm_database")
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        AlarmDatabase::class.java, "alarm_database"
+                    )
                         .fallbackToDestructiveMigration()
                         .addCallback(roomCallback)
                         .build()
@@ -38,7 +41,9 @@ abstract class AlarmDatabase : RoomDatabase() {
         private val roomCallback = object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
+                Log.d("populateDb", "Before populating")
                 uiScope.launch { populateDb(instance) }
+                Log.d("populateDb", "After populating")
             }
         }
 
@@ -54,21 +59,35 @@ abstract class AlarmDatabase : RoomDatabase() {
             calAlarm.set(Calendar.MINUTE, 20)
             val alarmTimeInMinutes = calAlarm.get(Calendar.HOUR_OF_DAY) * 60 + calAlarm.get(Calendar.MINUTE)
 
-
             withContext(Dispatchers.IO) {
-                alarmDao?.insert(Alarm(1, "800-летия Москвы, 28к1",
-                    "Прянишникова, 2а", departTimeInMinutes,
-                    alarmTimeInMinutes, true, "First para",
-                    false, "Dingdong", "soundUriExample"))
-                alarmDao?.insert(Alarm(1, "800-летия Москвы, 28к1",
-                    "Прянишникова, 2а", departTimeInMinutes,
-                    alarmTimeInMinutes, true, "Not first para",
-                    false, "Dingdong", "soundUriExample"))
-                alarmDao?.insert(Alarm(3, "800-летия Москвы, 28к1",
-                    "Прянишникова, 2а", departTimeInMinutes,
-                    alarmTimeInMinutes, true, "Some text in label",
-                    false, "Dingdong", "soundUriExample"))
+                Log.d("populateDb", "Before inserting")
+                alarmDao?.insert(
+                    Alarm(
+                        1, "800-летия Москвы, 28к1",
+                        "Прянишникова, 2а", departTimeInMinutes,
+                        alarmTimeInMinutes, true, "First para",
+                        false, "Dingdong", "soundUriExample"
+                    )
+                )
+                alarmDao?.insert(
+                    Alarm(
+                        1, "800-летия Москвы, 28к1",
+                        "Прянишникова, 2а", departTimeInMinutes,
+                        alarmTimeInMinutes, true, "Not first para",
+                        true, "Dingdong", "soundUriExample"
+                    )
+                )
+                alarmDao?.insert(
+                    Alarm(
+                        3, "800-летия Москвы, 28к1",
+                        "Прянишникова, 2а", departTimeInMinutes,
+                        alarmTimeInMinutes, true, "Some text in label",
+                        false, "Dingdong", "soundUriExample"
+                    )
+                )
+                Log.d("populateDb", "After inserting")
             }
+
         }
     }
 }

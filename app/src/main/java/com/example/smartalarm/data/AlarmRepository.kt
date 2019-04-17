@@ -34,8 +34,5 @@ class AlarmRepository(application: Application) {
         uiScope.launch { alarmDao.update(alarm) }
     }
 
-    fun getAlarmById(id: Int) : Alarm {
-        val alarm: Alarm = alarmDao.getAlarmById(id)
-        return alarm
-    }
+    fun getAlarmById(id: Int) = alarmDao.getAlarmById(id)
 }

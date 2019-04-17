@@ -3,6 +3,7 @@ package com.example.smartalarm.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
         setContentView(R.layout.activity_main)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -89,6 +91,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

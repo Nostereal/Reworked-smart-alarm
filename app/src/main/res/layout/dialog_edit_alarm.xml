@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/edit_alarm_scrollView"
-            android:background="#1F2F3F"
+            tools:background="#1F2F3F"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -56,14 +56,75 @@
                     android:textColor="@color/textColor"
                     android:textSize="@dimen/small_time_text_size"
                     android:layout_marginEnd="@dimen/medium_margin"
-                    tools:text="8:00"
-            />
+                    tools:text="8:00"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/edit_alarm_from_holder"
+                android:layout_below="@id/edit_alarm_depart_time_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/edit_alarm_from_image"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_home"
+                    android:layout_marginHorizontal="@dimen/tiny_margin"
+                    android:layout_alignTop="@id/edit_alarm_from_address"
+                    android:layout_alignBottom="@id/edit_alarm_from_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:id="@+id/edit_alarm_from_address"
+                    android:hint="@string/from_hint"
+                    android:maxLines="1"
+                    android:textColorHint="@color/textColorHint"
+                    android:textColor="@color/textColor"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginTop="@dimen/tiny_margin"
+                    android:layout_toEndOf="@id/edit_alarm_from_image"
+                    android:textSize="@dimen/normal_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/edit_alarm_to_holder"
+                android:layout_below="@id/edit_alarm_from_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/edit_alarm_to_image"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_work"
+                    android:layout_marginHorizontal="@dimen/tiny_margin"
+                    android:layout_alignTop="@id/edit_alarm_to_address"
+                    android:layout_alignBottom="@id/edit_alarm_to_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:id="@+id/edit_alarm_to_address"
+                    android:hint="@string/to_hint"
+                    android:maxLines="1"
+                    android:textColorHint="@color/textColorHint"
+                    android:textColor="@color/textColor"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginTop="@dimen/tiny_margin"
+                    android:layout_toEndOf="@id/edit_alarm_to_image"
+                    android:textSize="@dimen/normal_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
         </RelativeLayout>
 
         <RelativeLayout
                 android:id="@+id/edit_alarm_vibrate_holder"
-                android:layout_below="@id/edit_alarm_depart_time_holder"
+                android:layout_below="@id/edit_alarm_to_holder"
                 android:paddingEnd="@dimen/small_margin"
                 android:paddingVertical="@dimen/medium_margin"
                 android:layout_width="match_parent"
